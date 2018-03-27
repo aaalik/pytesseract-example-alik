@@ -10,10 +10,7 @@ onlyfiles = os.listdir(DIR)
 # convert all img files into txt using forloop
 for i in range(countfiles):
     imgpath = DIR+"/"+onlyfiles[i]
+    f = open("txt/"+onlyfiles[i]+".txt", "w+")
     text = pytesseract.image_to_string(Image.open(imgpath), lang='ind')
-    print(text)
-    print("============================================")
-
-# converting process to txt
-# text = pytesseract.image_to_string(Image.open('img/surat-izin.jpg'), lang='ind')
-# print(text)
+    f.write(text)
+    f.close()
